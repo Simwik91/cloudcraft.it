@@ -1,13 +1,14 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    background-color: #f0f2f5; /* Lighter grey */
+    background-color: #f0f2f5;
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     text-align: center;
+    overflow: hidden;
 }
 
 main {
@@ -35,21 +36,27 @@ main {
 
 .visual {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 2rem;
-    perspective: 1000px; /* For 3D effect on hover */
+}
+
+.data-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .box {
-    padding: 2.5rem 3.5rem;
+    padding: 2rem 3rem;
     border-radius: 15px;
     background-color: #ffffff;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 600;
     border: 1px solid #e0e0e0;
     transition: all 0.3s ease-in-out;
+    animation: pulse 5s infinite ease-in-out;
 }
 
 .box:hover {
@@ -57,8 +64,10 @@ main {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-.client {
+.you {
     color: #0077b6;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
 }
 
 .data {
@@ -67,28 +76,85 @@ main {
 
 .cloudcraft {
     color: #ff9f1c;
-    transform: scale(1.1); /* Keep it slightly larger */
+    transform: scale(1.1);
+    animation-delay: 0.5s;
 }
 
-.cloudcraft:hover {
-    transform: translateY(-10px) scale(1.15); /* Adjusted hover for the larger element */
+.arrow-right-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.arrow {
+.arrow-right {
     width: 60px;
     height: 8px;
     background: linear-gradient(90deg, #d3d3d3, #a9a9a9);
     position: relative;
     border-radius: 4px;
     opacity: 0.7;
+    animation: move-right 2s infinite linear;
 }
 
-.arrow::after {
+.arrow-right::after {
     content: '';
     position: absolute;
-    right: -12px; /* Adjusted position */
-    top: -8px;   /* Adjusted position */
+    right: -12px;
+    top: -8px;
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
     border-left: 12px solid #a9a9a9;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); }
+    50% { box-shadow: 0 10px 35px rgba(0, 119, 182, 0.2); }
+    100% { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); }
+}
+
+@keyframes move-right {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 0; }
+}
+
+/* Popup Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+.popup-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+}
+
+#close-popup {
+    background-color: #0077b6;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+#close-popup:hover {
+    background-color: #005a8d;
 }

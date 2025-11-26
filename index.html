@@ -10,17 +10,32 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div id="construction-popup" class="popup-overlay">
+        <div class="popup-content">
+            <h2>Site Under Construction</h2>
+            <p>We are currently working on this site. Please check back later!</p>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
     <main>
         <section class="hero">
             <h1>CloudCraft.it</h1>
             <p>Endpoint to endpoint cloud services.</p>
         </section>
         <section class="visual">
-            <div class="box client">Client</div>
-            <div class="arrow"></div>
+            <div class="data-stack">
+                <div class="box data">Data</div>
+                <div class="box data">Data</div>
+                <div class="box data">Data</div>
+            </div>
+            <div class="arrow-right-container">
+                <div class="arrow-right"></div>
+            </div>
             <div class="box cloudcraft">CloudCraft</div>
-            <div class="arrow"></div>
-            <div class="box data">Data</div>
+            <div class="arrow-right-container">
+                <div class="arrow-right"></div>
+            </div>
+            <button class="box you">You</button>
         </section>
     </main>
     <script src="js/main.js"></script>
